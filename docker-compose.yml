@@ -1,13 +1,12 @@
 version: "3.4"
-services: 
+services:
   3hree1nec:
-    container_name: 31c
+    container_name: 3hree1nec
     build: ./client/
     ports:
       - 3003:3003
   3hree1nes:
-    container_name: 31s
+    container_name: 3hree1nes
     build: ./server/
-    ports: 
+    ports:
       - 4003:4003
-
