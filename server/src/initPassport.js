@@ -1,9 +1,9 @@
 const Users = require("./models/users");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const { SUPER_URL, INIT_URL, PHOTO_URL } = require("./config");
+const { SUPER_URL, INIT_URL, PHOTO_URL, COMMENT_URL } = require("./config");
 
-const WHITE_LIST = [SUPER_URL, INIT_URL, PHOTO_URL];
+const WHITE_LIST = [SUPER_URL, INIT_URL, PHOTO_URL, COMMENT_URL];
 
 const initPassport = (server) => {
 	server.use(passport.initialize());
