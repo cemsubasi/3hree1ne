@@ -7,7 +7,7 @@ import {
 	replacePost,
 	editPost,
 	setErr,
-} from "./SuperAction";
+} from "./superAction";
 import SuperModal from "./SuperModal";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";

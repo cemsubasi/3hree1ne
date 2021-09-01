@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { addPhoto } from "./SuperAction";
+import { addPhoto } from "./superAction";
 import { dateParsed } from "../../config";
 import ImageUploading from "react-images-uploading";
 
@@ -8,8 +8,6 @@ const SuperPhoto = (props) => {
 	const [images, setImages] = useState([]);
 	const maxNumber = 1;
 	const onChange = (imageList, addUpdateIndex) => {
-		// data for submit
-		// console.log(imageList, addUpdateIndex);
 		setImages(imageList);
 	};
 
@@ -23,19 +21,15 @@ const SuperPhoto = (props) => {
 	const inputStateHandler = (e) => {
 		setInputState({ ...inputState, [e.target.name]: e.target.value });
 	};
-	useEffect(
-		() => {
-			setInputState({
-				...images[0],
-				date: dateParsed,
-				title: inputState.title,
-				category: inputState.category,
-			});
-			console.log(inputState);
-		},
-		// eslint-disable-next-line
-		[images]
-	);
+	useEffect(() => {
+		setInputState({
+			...images[0],
+			date: dateParsed,
+			title: inputState.title,
+			category: inputState.category,
+		});
+		console.log(inputState);
+	}, [images]);
 
 	const setClearInputs = () =>
 		setInputState({

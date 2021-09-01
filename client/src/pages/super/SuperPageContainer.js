@@ -15,10 +15,10 @@ function SuperPageContainer(props) {
 				<HomeModal />
 				<SuperBanner />
 				{props.superInputState === "post" ? (
-					<div>
+					<>
 						<SuperList />
 						<SuperForm />
-					</div>
+					</>
 				) : (
 					<SuperPhoto />
 				)}
