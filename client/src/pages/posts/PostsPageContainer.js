@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../../common/Header";
-import Footer from "../../common/Footer";
 import PostsBody from "./PostsBody";
+import Footer from "../../common/Footer";
+import Header from "../../common/Header";
 
 function PostsPageContainer() {
 	return (

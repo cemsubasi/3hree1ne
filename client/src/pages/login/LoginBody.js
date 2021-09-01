@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
 import { setAdmin } from "./LoginAction";
 import { url3 } from "../../config";
-
 import logo from "../../images/logo1.svg";
 
 const LoginBody = (props) => {

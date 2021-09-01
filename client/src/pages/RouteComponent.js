@@ -1,13 +1,14 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import SuperPageContainer from "./super/SuperPageContainer";
-import HomePageContainer from "./home/HomePageContainer";
-import DummyPageContainer from "./dummy/DummyPageContainer";
-import LoginPageContainer from "./login/LoginPageContainer";
-import AlbumPageContainer from "./album/AlbumPageContainer";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import AboutPageContainer from "./about/AboutPageContainer";
-import PostsPageContainer from "./posts/PostsPageContainer";
+import AlbumPageContainer from "./album/AlbumPageContainer";
 import ArchivePageContainer from "./archive/ArchivePageContainer";
+import DummyPageContainer from "./dummy/DummyPageContainer";
+import HomePageContainer from "./home/HomePageContainer";
+import LoginPageContainer from "./login/LoginPageContainer";
+import PostsPageContainer from "./posts/PostsPageContainer";
+import SuperPageContainer from "./super/SuperPageContainer";
 import Page404 from "../common/404";
 import { url3 } from "../config";
 

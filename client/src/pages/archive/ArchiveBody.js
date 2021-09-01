@@ -1,6 +1,7 @@
-import { useParams, Link } from "react-router-dom";
-import { connect } from "react-redux";
 import parse from "html-react-parser";
+import { connect } from "react-redux";
+import { useParams, Link } from "react-router-dom";
+
 import { parseDateToArchiveFormat, parseURLToDate } from "../../config";
 
 const ArchiveBody = (props) => {

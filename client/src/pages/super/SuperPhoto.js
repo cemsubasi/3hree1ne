@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
+import ImageUploading from "react-images-uploading";
 import { connect } from "react-redux";
 import { addPhoto } from "./superAction";
 import { dateParsed } from "../../config";
-import ImageUploading from "react-images-uploading";
 
 const SuperPhoto = (props) => {
 	const [images, setImages] = useState([]);

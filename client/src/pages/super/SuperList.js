@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addPost, deletePost, featuredPost, editPost } from "./superAction";
 import { Link } from "react-router-dom";
+import { addPost, deletePost, featuredPost, editPost } from "./superAction";
 
 const SuperList = (props) => {
 	return (

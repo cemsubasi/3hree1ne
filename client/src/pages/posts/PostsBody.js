@@ -1,7 +1,7 @@
+import parse from "html-react-parser";
 import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
-import parse from "html-react-parser";
 import { secret } from "../../config";
 
 const PostsBody = (props) => {

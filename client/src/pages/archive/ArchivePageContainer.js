@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../../common/Header";
-import Footer from "../../common/Footer";
 import ArchiveBody from "./ArchiveBody";
+import Footer from "../../common/Footer";
+import Header from "../../common/Header";
 
 const ArchivePageContainer = () => {
 	return (

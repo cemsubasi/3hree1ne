@@ -1,11 +1,11 @@
-import SuperBanner from "./SuperBanner";
-import SuperList from "./SuperList";
-import SuperForm from "./SuperForm";
-import SuperPhoto from "./SuperPhoto";
-import Header from "../../common/Header";
-import Footer from "../../common/Footer";
-import HomeModal from "../home/HomeModal";
 import { connect } from "react-redux";
+import SuperBanner from "./SuperBanner";
+import SuperForm from "./SuperForm";
+import SuperList from "./SuperList";
+import SuperPhoto from "./SuperPhoto";
+import HomeModal from "../home/HomeModal";
+import Footer from "../../common/Footer";
+import Header from "../../common/Header";
 
 function SuperPageContainer(props) {
 	return (

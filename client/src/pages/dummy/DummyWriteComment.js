@@ -1,9 +1,9 @@
-import InputGroup from "react-bootstrap/InputGroup";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import InputGroup from "react-bootstrap/InputGroup";
 import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
 import { addComment } from "./DummyAction";
 import { dateParsed } from "../../config";
 

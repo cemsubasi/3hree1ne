@@ -1,6 +1,6 @@
 import React from "react";
-import pp from "../../images/pp.webp";
 import { aboutText } from "../../config";
+import pp from "../../images/pp.webp";
 
 function AboutBody(props) {
 	return (

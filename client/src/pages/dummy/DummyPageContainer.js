@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../../common/Header";
-import Footer from "../../common/Footer";
-import DummyWriteComment from "./DummyWriteComment";
-import DummyShowComments from "./DummyShowComments";
 import DummyBody from "./DummyBody";
+import DummyShowComments from "./DummyShowComments";
+import DummyWriteComment from "./DummyWriteComment";
+import Footer from "../../common/Footer";
+import Header from "../../common/Header";
 
 const DummyPageContainer = () => {
 	return (

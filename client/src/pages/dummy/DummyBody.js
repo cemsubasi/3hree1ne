@@ -1,7 +1,7 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { connect } from "react-redux";
 import parse from "html-react-parser";
+import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
 
 const DummyBody = (props) => {
 	let { slug } = useParams();

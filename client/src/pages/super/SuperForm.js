@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import {
 	addPost,
@@ -9,10 +11,7 @@ import {
 	setErr,
 } from "./superAction";
 import SuperModal from "./SuperModal";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { dateParsed } from "../../config";
-import { useEffect } from "react";
 
 const SuperForm = (props) => {
 	// eslint-disable-next-line
