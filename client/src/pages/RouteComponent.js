@@ -1,14 +1,14 @@
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import AboutPageContainer from "./about/AboutPageContainer";
-import AlbumPageContainer from "./album/AlbumPageContainer";
-import ArchivePageContainer from "./archive/ArchivePageContainer";
-import DummyPageContainer from "./dummy/DummyPageContainer";
-import HomePageContainer from "./home/HomePageContainer";
-import LoginPageContainer from "./login/LoginPageContainer";
-import PostsPageContainer from "./posts/PostsPageContainer";
-import SuperPageContainer from "./super/SuperPageContainer";
+import About from "./about/About";
+import Album from "./album/Album";
+import Archive from "./archive/Archive";
+import Dummy from "./dummy/Dummy";
+import Home from "./home/Home";
+import Login from "./login/Login";
+import Posts from "./posts/Posts";
+import Super from "./super/Super";
 import Page404 from "../common/404";
 import { url3 } from "../config";
 
@@ -17,23 +17,17 @@ const RouteComponent = (props) => {
 		<Router>
 			<div className="container">
 				<Switch>
-					<Route exact path="/" component={HomePageContainer} />
-					<Route path="/posts" component={PostsPageContainer} />
-					<Route path="/album" component={AlbumPageContainer} />
-					<Route path="/about" component={AboutPageContainer} />
+					<Route exact path="/" component={Home} />
+					<Route path="/posts" component={Posts} />
+					<Route path="/album" component={Album} />
+					<Route path="/about" component={About} />
 					<Route
 						path={url3}
-						render={() =>
-							props.isAdmin === true ? (
-								<SuperPageContainer />
-							) : (
-								<LoginPageContainer />
-							)
-						}
+						render={() => (props.isAdmin === true ? <Super /> : <Login />)}
 					/>
-					<Route path="/archive/slug/:slug" component={DummyPageContainer} />
-					<Route path="/slug/:slug" component={DummyPageContainer} />
-					<Route path="/archive/:slug" component={ArchivePageContainer} />
+					<Route path="/archive/slug/:slug" component={Dummy} />
+					<Route path="/slug/:slug" component={Dummy} />
+					<Route path="/archive/:slug" component={Archive} />
 					<Route path="*" component={Page404} />
 				</Switch>
 			</div>
