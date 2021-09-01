@@ -1,4 +1,5 @@
 import { axiosCall } from "../../config";
+
 export const fetchPhotos = () => (dispatch) => {
 	axiosCall("get", "/photos")
 		.then((res) => dispatch({ type: "FETCH_PHOTOS", payload: res }))

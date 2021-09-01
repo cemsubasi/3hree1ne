@@ -5,11 +5,11 @@ import Header from "../../common/Header";
 
 function PostsPageContainer() {
 	return (
-		<div className="container">
+		<>
 			<Header />
 			<PostsBody />
 			<Footer />
-		</div>
+		</>
 	);
 }
 export default PostsPageContainer;

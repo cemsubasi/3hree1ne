@@ -9,21 +9,19 @@ import Header from "../../common/Header";
 
 function SuperPageContainer(props) {
 	return (
-		<div className="container">
-			<div className="superuser">
-				<Header />
-				<HomeModal />
-				<SuperBanner />
-				{props.superInputState === "post" ? (
-					<>
-						<SuperList />
-						<SuperForm />
-					</>
-				) : (
-					<SuperPhoto />
-				)}
-				<Footer />
-			</div>
+		<div className="superuser">
+			<Header />
+			<HomeModal />
+			<SuperBanner />
+			{props.superInputState === "post" ? (
+				<>
+					<SuperList />
+					<SuperForm />
+				</>
+			) : (
+				<SuperPhoto />
+			)}
+			<Footer />
 		</div>
 	);
 }

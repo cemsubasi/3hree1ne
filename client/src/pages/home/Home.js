@@ -7,13 +7,13 @@ import Header from "../../common/Header";
 
 function HomePageContainer() {
 	return (
-		<div className="container">
+		<>
 			<Header />
 			<Banner />
 			<HomeFeaturedPosts />
 			<HomeMainPosts />
 			<Footer />
-		</div>
+		</>
 	);
 }
 

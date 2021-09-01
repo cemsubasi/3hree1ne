@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
 
-import { fetchPhotos } from "./pages/album/AlbumAction";
-import { fetchPosts } from "./pages/home/HomeAction";
+import { fetchPhotos } from "./pages/album/albumAction";
+import { fetchPosts } from "./pages/home/homeAction";
 import RouteComponent from "./pages/RouteComponent";
 
 import "./css/client.css";

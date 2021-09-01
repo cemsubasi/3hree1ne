@@ -4,7 +4,7 @@ import FormControl from "react-bootstrap/FormControl";
 import InputGroup from "react-bootstrap/InputGroup";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import { addComment } from "./DummyAction";
+import { addComment } from "./dummyAction";
 import { dateParsed } from "../../config";
 
 const DummyWriteComment = (props) => {

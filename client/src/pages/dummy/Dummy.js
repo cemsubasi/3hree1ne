@@ -7,7 +7,7 @@ import Header from "../../common/Header";
 
 const DummyPageContainer = () => {
 	return (
-		<div className="container">
+		<>
 			<Header />
 			<DummyBody />
 			<DummyShowComments />
@@ -16,7 +16,7 @@ const DummyPageContainer = () => {
 				<DummyWriteComment />
 			</div>
 			<Footer />
-		</div>
+		</>
 	);
 };
 
