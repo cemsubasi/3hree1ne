@@ -33,26 +33,17 @@ const SuperForm = (props) => {
 	});
 	const textHandler = () => setText("");
 
-	useEffect(
-		() => setInputState({ ...inputState, postBody: text }),
-		// eslint-disable-next-line
-		[text]
-	);
+	useEffect(() => setInputState({ ...inputState, postBody: text }), [text]);
 	useEffect(
 		() => setEdit(props.state.filter((e) => e.postUrl === props.editState)),
-		// eslint-disable-next-line
 		[props.editState]
 	);
-	useEffect(
-		() => {
-			if (edit[0]) {
-				setInputState({ ...inputState, ...edit[0] });
-				setText(edit[0].postBody);
-			}
-		},
-		// eslint-disable-next-line
-		[edit]
-	);
+	useEffect(() => {
+		if (edit[0]) {
+			setInputState({ ...inputState, ...edit[0] });
+			setText(edit[0].postBody);
+		}
+	}, [edit]);
 	useEffect(() => console.log(props), [props]);
 
 	const inputStateHandler = (e) =>
