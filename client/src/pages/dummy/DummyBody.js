@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 
 const DummyBody = (props) => {
 	let { slug } = useParams();
-	console.log(slug);
 	return props.state
 		.filter((item) => item.postUrl === "slug/" + slug)
 		.map((item) => (

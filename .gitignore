@@ -3,5 +3,9 @@ server/node_modules/
 
 client/public/
 client/src/config.js
+client/.eslintcache
+client/.DS_Store
 
-server/src/config.js
+server/.env.json
+
+.DS_Store

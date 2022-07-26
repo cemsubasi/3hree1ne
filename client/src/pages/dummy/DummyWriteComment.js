@@ -3,12 +3,12 @@ import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import InputGroup from "react-bootstrap/InputGroup";
 import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { addComment } from "./dummyAction";
 import { dateParsed } from "../../config";
 
 const DummyWriteComment = (props) => {
-	let { slug } = useParams();
+	const { pathname } = useLocation();
 	const [comment, setComment] = useState({
 		userName: "Anonymous",
 		userComment: "",
@@ -62,7 +62,10 @@ const DummyWriteComment = (props) => {
 				<Button
 					size="lg"
 					onClick={() => {
-						props.addComment({ postUrl: slug, comment: comment });
+						props.addComment({
+							postUrl: pathname.substring(1),
+							comment: comment,
+						});
 						commentClear();
 					}}
 					variant="outline-dark"

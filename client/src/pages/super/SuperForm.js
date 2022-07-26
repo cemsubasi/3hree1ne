@@ -43,7 +43,7 @@ const SuperForm = (props) => {
 			setText(edit[0].postBody);
 		}
 	}, [edit]);
-	useEffect(() => console.log(props), [props]);
+	// useEffect(() => console.log(props), [props]);
 
 	const inputStateHandler = (e) =>
 		setInputState({ ...inputState, [e.target.name]: e.target.value });

@@ -28,7 +28,6 @@ const SuperPhoto = (props) => {
 			title: inputState.title,
 			category: inputState.category,
 		});
-		console.log(inputState);
 	}, [images]);
 
 	const setClearInputs = () =>
@@ -40,7 +39,6 @@ const SuperPhoto = (props) => {
 			category: "Ben",
 		});
 
-	console.log(inputState);
 	return (
 		<div className="App">
 			<ImageUploading

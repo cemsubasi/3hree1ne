@@ -1,17 +1,17 @@
 import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const DummyShowComments = (props) => {
-	let { slug } = useParams();
+	let { pathname } = useLocation();
 
 	return (
 		<div className="p-5">
 			<h2 className="text-center pb-4">Comments</h2>
 			{props.state
-				.filter((item) => item.postUrl === slug)
+				.filter((item) => item.postUrl === pathname.substring(1))
 				.map((item, index) =>
 					item.comments.length > 0 ? (
-						item.comments.map((item, index) => (
+						item.comments.map((i, index) => (
 							<div
 								key={index}
 								className="container text-center border pt-2"
@@ -22,9 +22,9 @@ const DummyShowComments = (props) => {
 									margin: "auto",
 								}}
 							>
-								<h5 className="text-break">@{item.userName}</h5>
-								<p className="text-break">{item.userComment}</p>
-								<p className="text-end text-muted m-1">{item.date}</p>
+								<h5 className="text-break">@{i.userName}</h5>
+								<p className="text-break">{i.userComment}</p>
+								<p className="text-end text-muted m-1">{i.date}</p>
 							</div>
 						))
 					) : (

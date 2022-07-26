@@ -12,7 +12,6 @@ function SuperModal({
 	editpost,
 	...props
 }) {
-	console.log("props.inputState", inputstate);
 	return (
 		<Modal
 			{...props}
