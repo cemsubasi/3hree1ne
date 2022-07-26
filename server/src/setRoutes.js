@@ -6,10 +6,10 @@ const commentRoute = require("./routes/commentRoute");
 const photoRoute = require("./routes/photoRoute");
 
 const setRoutes = (server) => {
-	server.use("/", (req, res, next) => {
-		console.log(req.url, req.body);
-		next();
-	});
+	// server.use("/", (req, res, next) => {
+	// 	console.log(req.url, req.body);
+	// 	next();
+	// });
 	server.use("/", passportRoute);
 	server.use(INIT_URL, initRoute);
 	server.use(POST_URL, postRoute);

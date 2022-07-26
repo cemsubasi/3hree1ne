@@ -1,18 +1,18 @@
 const nodemailer = require("nodemailer");
-const { MAILFROM, MAILTO, PASSWORD } = require("../config");
+const { MAIL_FROM, MAIL_TO, MAIL_PASSWORD } = require("../config");
 
 const mailer = (arg) => {
 	var transporter = nodemailer.createTransport({
 		service: "gmail",
 		auth: {
-			user: MAILFROM,
-			pass: PASSWORD,
+			user: MAIL_FROM,
+			pass: MAIL_PASSWORD,
 		},
 	});
 
 	var mailOptions = {
-		from: MAILFROM,
-		to: MAILTO,
+		from: MAIL_FROM,
+		to: MAIL_TO,
 		subject: "Comment",
 		text: arg,
 	};

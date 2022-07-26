@@ -5,7 +5,7 @@ const session = require("express-session");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-const { DB_CONNECT, HTTPPORT, ORIGIN, SESSION_OPT } = require("./config");
+const { DB_CONNECT, PORT, ORIGIN, SESSION_OPT } = require("./config");
 
 const initExpress = () => {
 	const server = express();
@@ -15,7 +15,7 @@ const initExpress = () => {
 	server.use(bodyParser.json({ limit: "10mb" }));
 	server.use(cookieParser());
 
-	server.listen(HTTPPORT, DB_CONNECT);
+	server.listen(PORT, DB_CONNECT);
 	return server;
 };
 module.exports = initExpress;
