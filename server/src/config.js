@@ -14,8 +14,9 @@ const {
 
 const ORIGIN =
 	NODE_ENV === "production" ? "https://cemsu.me" : "http://localhost:8003";
+const DB_ENV = NODE_ENV === "production" ? "" : "-dev";
 
-const DB_URL = `mongodb+srv://${DB_NAME}:${DB_PASSWORD}@cluster0.zoi2e.mongodb.net/${DB_COLLECTION}?retryWrites=true&w=majority`;
+const DB_URL = `mongodb+srv://${DB_NAME}${DB_ENV}:${DB_PASSWORD}@cluster0.zoi2e.mongodb.net/${DB_COLLECTION}?retryWrites=true&w=majority`;
 
 const DB_OPT = {
 	useNewUrlParser: true,
