@@ -7,6 +7,7 @@ import {
 	homeAboutHead,
 	homeAboutBody,
 	instagram,
+	github,
 	parseDateToArchiveFormat,
 	parseDateToURL,
 } from "../../config";
@@ -105,6 +106,10 @@ const HomeMainPosts = (props) => {
 						<h4 className="font-italic">Elsewhere</h4>
 						<ol className="list-unstyled">
 							<li>
+								<a href={github} target="_alt">
+									Github
+								</a>
+								<br />
 								<a href={instagram} target="_alt">
 									Instagram
 								</a>

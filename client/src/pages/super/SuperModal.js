@@ -1,15 +1,11 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+// import { EditorState } from "draft-js";
 // import { connect } from "react-redux";
 // import { replacePost } from "./superAction";
 
 function SuperModal({
-	inputstate,
-	seterr,
-	replacepost,
-	texthandler,
-	inputstateclear,
-	editpost,
+	setModalState,
 	...props
 }) {
 	return (
@@ -30,17 +26,13 @@ function SuperModal({
 				<Button
 					className="btn btn-success"
 					onClick={() => {
-						replacepost(inputstate);
-						inputstateclear();
-						texthandler("");
-						seterr(0);
-						editpost("");
+						setModalState(true);
 						props.onHide();
 					}}
 				>
 					Yes
 				</Button>
-				<Button className="btn btn-danger" onClick={props.onHide}>
+				<Button className="btn btn-danger" onClick={() => {props.onHide(); setModalState(false);}}>
 					No
 				</Button>
 			</Modal.Footer>

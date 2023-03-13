@@ -1,7 +1,10 @@
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { Editor } from "react-draft-wysiwyg";
+import { EditorState, convertToRaw, ContentState } from "draft-js";
+import draftToHtml from "draftjs-to-html";
+import htmlToDraft from "html-to-draftjs";
+import "../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import {
 	addPost,
 	deletePost,
@@ -18,6 +21,7 @@ const SuperForm = (props) => {
 	const [text, setText] = useState("");
 	const [edit, setEdit] = useState({});
 	const [modalShow, setModalShow] = useState(false);
+	const [modalState, setModalState] = useState(false);
 	const [inputState, setInputState] = useState({
 		id: Date.now(),
 		thumbnail: "Negro",
@@ -30,23 +34,37 @@ const SuperForm = (props) => {
 		featured: false,
 		comments: [],
 	});
-	const textHandler = () => setText("");
+	const [editorState, setState] = useState(EditorState.createEmpty());
+	const onEditorStateChange = (editorState) => setState(editorState);
+	const clearEditorState = () => setState(EditorState.createEmpty());
 
 	useEffect(() => setInputState({ ...inputState, postBody: text }), [text]);
+
 	useEffect(
 		() => setEdit(props.state.filter((e) => e.postUrl === props.editState)),
 		[props.editState]
 	);
+
 	useEffect(() => {
 		if (edit[0]) {
+			const blocksFromHtml = htmlToDraft(edit[0].postBody);
+			const { contentBlocks, entityMap } = blocksFromHtml;
+			const contentState = ContentState.createFromBlockArray(
+				contentBlocks,
+				entityMap
+			);
+
+			const editorStateByContent = EditorState.createWithContent(contentState);
+			setState(editorStateByContent);
+
 			setInputState({ ...inputState, ...edit[0] });
 			setText(edit[0].postBody);
 		}
 	}, [edit]);
-	// useEffect(() => console.log(props), [props]);
 
 	const inputStateHandler = (e) =>
 		setInputState({ ...inputState, [e.target.name]: e.target.value });
+
 	const inputStateClear = () =>
 		setInputState({
 			id: Date.now(),
@@ -64,11 +82,7 @@ const SuperForm = (props) => {
 	const Submit = () => {
 		//if there is one other with same url then edit that object
 		if (props.state.some((user) => user.postUrl === inputState.postUrl)) {
-			// setText("");
-			// inputStateClear();
-			// props.setErr(0);
 			setModalShow(true);
-			// return props.replacePost(inputState);
 		}
 		//url doesnt be empty or take blank
 		//i should implement real url algorithm
@@ -85,16 +99,21 @@ const SuperForm = (props) => {
 		}
 	};
 
+	useEffect(() => {
+		if (modalState) {
+			props.replacePost(inputState);
+			inputStateClear();
+			props.setErr(0);
+			props.editPost("");
+			setState(EditorState.createEmpty());
+		}
+	}, [modalState]);
+
 	return (
 		<div className="container">
 			<SuperModal
-				texthandler={textHandler}
-				editpost={props.editPost}
-				seterr={props.setErr}
-				replacepost={props.replacePost}
 				show={modalShow}
-				inputstateclear={inputStateClear}
-				inputstate={inputState}
+				setModalState={setModalState}
 				onHide={() => setModalShow(false)}
 			/>
 			{(() => {
@@ -178,17 +197,16 @@ const SuperForm = (props) => {
 			</div>
 
 			<div className="editor mb-3 m-2auto">
-				<CKEditor
-					editor={ClassicEditor}
+				<Editor
+					editorState={editorState}
+					toolbarClassName="toolbarClassName"
+					wrapperClassName="wrapperClassName"
+					editorClassName="editorClassName"
+					onEditorStateChange={onEditorStateChange}
 					name="postBody"
-					value={text}
-					data={text}
-					onChange={(event, editor) => {
-						const data = editor.getData();
-						setText(data);
+					onChange={() => {
+						setText(draftToHtml(convertToRaw(editorState.getCurrentContent())));
 					}}
-					id="exampleFormControlTextarea1"
-					rows="5"
 				/>
 			</div>
 			<div className="my-3">
@@ -198,6 +216,7 @@ const SuperForm = (props) => {
 				<button
 					className="btn btn-outline-danger mb-3 mx-2"
 					onClick={() => {
+						clearEditorState();
 						inputStateClear();
 						setText("");
 						props.editPost("");

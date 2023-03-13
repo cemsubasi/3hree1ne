@@ -1,4 +1,10 @@
 /* stylelint-disable selector-list-comma-newline-after */
+.App {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+}
 
 .blog-header {
   line-height: 1;
@@ -13,6 +19,14 @@
 
 .blog-header-logo:hover {
   text-decoration: none;
+}
+
+div>img {
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
 }
 
 h1,

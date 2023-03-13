@@ -9,7 +9,7 @@ const DummyBody = (props) => {
 		.filter((item) => item.postUrl === "slug/" + slug)
 		.map((item) => (
 			<div key={item.postUrl} className="container">
-				<div className="container pt-4 m-auto p-5">
+				<div className="container pt-4 m-auto">
 					<h2 className="text-center pb-4" tabIndex="0">
 						{item.postHeader}
 					</h2>

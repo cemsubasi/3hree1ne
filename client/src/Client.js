@@ -5,7 +5,6 @@ import { fetchPhotos } from "./pages/album/albumAction";
 import { fetchPosts } from "./pages/home/homeAction";
 import RouteComponent from "./pages/RouteComponent";
 
-import "./css/client.css";
 import "./css/blog.css";
 import "./css/signin.css";
 
