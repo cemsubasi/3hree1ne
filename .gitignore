@@ -10,3 +10,4 @@ server/.env.json
 
 .DS_Store
 client/.eslintcache
+client/DockerBuildCommands.txt
