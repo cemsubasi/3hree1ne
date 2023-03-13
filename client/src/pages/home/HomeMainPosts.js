@@ -56,17 +56,20 @@ const HomeMainPosts = (props) => {
 						{homePageTitle}
 					</h3>
 
-					{stateMainPage.map((item) => (
-						<div className="blog-post" key={item.postUrl}>
-							<h2 className="blog-post-title">
-								<Link to={`/${item.postUrl}`}>{item.postHeader}</Link>
-							</h2>
-							<p className="blog-post-meta">
-								{item.date} by <Link to="/about">{item.author}</Link>
-							</p>
-							<div>{parse(item.postBody)}</div>
-						</div>
-					))}
+					{stateMainPage.map(
+						(item) =>
+							item.isActive && (
+								<div className="blog-post" key={item.postUrl}>
+									<h2 className="blog-post-title">
+										<Link to={`/${item.postUrl}`}>{item.postHeader}</Link>
+									</h2>
+									<p className="blog-post-meta">
+										{item.date} by <Link to="/about">{item.author}</Link>
+									</p>
+									<div>{parse(item.postBody)}</div>
+								</div>
+							)
+					)}
 					<nav className="blog-pagination" aria-label="Pagination">
 						<button
 							className="btn btn-outline-primary"
@@ -93,13 +96,16 @@ const HomeMainPosts = (props) => {
 					<div className="p-4">
 						<h4 className="font-italic">Archives</h4>
 						<ol className="list-unstyled mb-0">
-							{arr.map((e) => (
-								<li key={e.id}>
-									<Link to={`/archive/${parseDateToURL(e.date)}`}>
-										{parseDateToArchiveFormat(e.date)}
-									</Link>
-								</li>
-							))}
+							{arr.map(
+								(e) =>
+									e.isActive && (
+										<li key={e.id}>
+											<Link to={`/archive/${parseDateToURL(e.date)}`}>
+												{parseDateToArchiveFormat(e.date)}
+											</Link>
+										</li>
+									)
+							)}
 						</ol>
 					</div>
 					<div className="p-4">

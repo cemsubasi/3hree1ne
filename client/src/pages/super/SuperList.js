@@ -1,7 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { addPost, deletePost, featuredPost, editPost } from "./superAction";
+import {
+	addPost,
+	deletePost,
+	featuredPost,
+	activatePost,
+	editPost,
+} from "./superAction";
 
 const SuperList = (props) => {
 	return (
@@ -14,6 +20,7 @@ const SuperList = (props) => {
 						<th scope="col">Date</th>
 						<th scope="col">Edit</th>
 						<th scope="col">Star</th>
+						<th scope="col">Activate</th>
 						<th scope="col">Delete</th>
 					</tr>
 				</thead>
@@ -49,6 +56,18 @@ const SuperList = (props) => {
 							</td>
 							<td>
 								<button
+									className={
+										user.isActive
+											? "btn btn-outline-danger btn-sm"
+											: "btn btn-outline-success btn-sm"
+									}
+									onClick={() => props.activatePost(user)}
+								>
+									{user.isActive ? "Deactivate" : "Activate"}
+								</button>
+							</td>
+							<td>
+								<button
 									className="btn btn-outline-dark btn-sm"
 									onClick={() => {
 										props.deletePost(user.postUrl);
@@ -77,5 +96,6 @@ export default connect(mapStateToProps, {
 	addPost,
 	deletePost,
 	featuredPost,
+	activatePost,
 	editPost,
 })(SuperList);

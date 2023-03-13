@@ -14,6 +14,7 @@ postRoute
 			author: req.body.author,
 			category: req.body.category,
 			featured: req.body.featured,
+			isActive: req.body.isActive,
 			comments: req.body.comments,
 			date: req.body.date,
 		});
@@ -42,6 +43,16 @@ postRoute
 				res.status(404).send(err);
 			});
 	});
+postRoute.route("/activation").put((req, res) => {
+	Blog.findOneAndUpdate(
+		{ postUrl: req.body.postUrl },
+		{ isActive: req.body.isActive }
+	)
+		.then((result) => res.status(202).send(result))
+		.catch((err) => {
+			res.status(404).send(err);
+		});
+});
 postRoute.route("/edit").put((req, res) => {
 	Blog.findOneAndUpdate(
 		{ postUrl: req.body.postUrl },

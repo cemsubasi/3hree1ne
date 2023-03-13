@@ -11,7 +11,7 @@ const HomeFeaturedPosts = (props) => {
 		<div className="container">
 			<div className="row mb-2">
 				{props.state.map((item) =>
-					item.featured ? (
+					item.featured && item.isActive ? (
 						<div className="col-md-6" key={item.postUrl}>
 							<div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 								<div className="col p-4 d-flex flex-column position-static">

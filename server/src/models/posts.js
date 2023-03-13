@@ -35,6 +35,10 @@ const dbSchema = new Schema({
 		type: Boolean,
 		require: true,
 	},
+	isActive: {
+		type: Boolean,
+		require: true,
+	},
 	comments: {
 		type: Array,
 		require: true,

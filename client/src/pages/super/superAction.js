@@ -1,18 +1,29 @@
-import { axiosCall, url2, url4 } from "../../config";
+import { axiosCall, url4 } from "../../config";
 
 export const addPost = (arg) => (dispatch) => {
-	axiosCall("post", url2, arg)
+	axiosCall("post", "/others", arg)
 		.then(() => dispatch({ type: "ADD_POST", payload: arg }))
 		.catch((err) => dispatch({ type: "ERR_MESSAGE", payload: err }));
 };
 export const deletePost = (arg) => (dispatch) => {
-	axiosCall("delete", url2, { data: { postUrl: arg } })
+	axiosCall("delete", "/others", { data: { postUrl: arg } })
 		.then(() => dispatch({ type: "DELETE_POST", payload: arg }))
 		.catch((err) => dispatch({ type: "ERR_MESSAGE", payload: err }));
 };
 export const featuredPost = (arg) => (dispatch) => {
-	axiosCall("put", url2, { postUrl: arg.postUrl, featured: !arg.featured })
+	axiosCall("put", "/others", {
+		postUrl: arg.postUrl,
+		featured: !arg.featured,
+	})
 		.then(() => dispatch({ type: "FEATURED_POST", payload: arg.postUrl }))
+		.catch((err) => dispatch({ type: "ERR_MESSAGE", payload: err }));
+};
+export const activatePost = (arg) => (dispatch) => {
+	axiosCall("put", "/others/activation", {
+		postUrl: arg.postUrl,
+		isActive: !arg.isActive,
+	})
+		.then(() => dispatch({ type: "ACTIVATE_POST", payload: arg.postUrl }))
 		.catch((err) => dispatch({ type: "ERR_MESSAGE", payload: err }));
 };
 export const replacePost = (arg) => (dispatch) => {

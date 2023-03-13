@@ -32,6 +32,7 @@ const SuperForm = (props) => {
 		category: "",
 		date: dateParsed,
 		featured: false,
+		isActive: false,
 		comments: [],
 	});
 	const [editorState, setState] = useState(EditorState.createEmpty());
@@ -76,6 +77,7 @@ const SuperForm = (props) => {
 			category: "",
 			date: dateParsed,
 			featured: false,
+			isActive: false,
 			comments: [],
 		});
 

@@ -10,8 +10,10 @@ const ArchiveBody = (props) => {
 		<div className="container row mx-0">
 			<div className="row row-cols-1 row-cols-lg-2 mx-0">
 				{props.state
-					.filter((each) =>
-						parseDateToArchiveFormat(each.date).includes(parseURLToDate(slug))
+					.filter(
+						(each) =>
+							each.isActive &&
+							parseDateToArchiveFormat(each.date).includes(parseURLToDate(slug))
 					)
 					.map((user) => (
 						<div key={user.postUrl} className="my-4 col ">

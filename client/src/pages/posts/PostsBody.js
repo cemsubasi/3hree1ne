@@ -34,26 +34,29 @@ const PostsBody = (props) => {
 							user.postBody.toLowerCase().includes(inputState.toLowerCase()) ||
 							user.postHeader.toLowerCase().includes(inputState.toLowerCase())
 					)
-					.map((user) => (
-						<div key={user.postUrl} className="my-4 col ">
-							<div className="card text-center">
-								<div className="card-header">
-									<h2>{user.postHeader}</h2>
-								</div>
-								<div className="card-body">
-									<div className="card-text">
-										{user.postBody.length > 200
-											? parse(user.postBody.slice(0, 200) + " ...")
-											: parse(user.postBody)}
+					.map(
+						(user) =>
+							user.isActive && (
+								<div key={user.postUrl} className="my-4 col ">
+									<div className="card text-center">
+										<div className="card-header">
+											<h2>{user.postHeader}</h2>
+										</div>
+										<div className="card-body">
+											<div className="card-text">
+												{user.postBody.length > 200
+													? parse(user.postBody.slice(0, 200) + " ...")
+													: parse(user.postBody)}
+											</div>
+											<Link to={`${user.postUrl}`} className="btn btn-primary">
+												Read More
+											</Link>
+										</div>
+										<div className="card-footer text-muted">{user.date}</div>
 									</div>
-									<Link to={`${user.postUrl}`} className="btn btn-primary">
-										Read More
-									</Link>
 								</div>
-								<div className="card-footer text-muted">{user.date}</div>
-							</div>
-						</div>
-					))}
+							)
+					)}
 			</div>
 		</div>
 	);

@@ -27,6 +27,15 @@ export const reducer = (state = Data, action) => {
 						: { ...item }
 				),
 			};
+		case "ACTIVATE_POST":
+			return {
+				...state,
+				postState: state.postState.map((item) =>
+					item.postUrl === action.payload
+						? { ...item, isActive: !item.isActive }
+						: { ...item }
+				),
+			};
 		case "REPLACE_POST":
 			return {
 				...state,
