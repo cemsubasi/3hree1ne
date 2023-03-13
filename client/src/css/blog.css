@@ -96,8 +96,8 @@ h6 {
 }
 .blog-pagination > .btn {
   border-radius: 2rem;
+  margin-right: .2rem;
 }
-
 /*
  * Blog posts
  */
